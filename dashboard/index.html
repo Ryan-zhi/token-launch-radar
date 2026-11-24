@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — every major protocol still waiting on a token, priced</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p class="tagline">Every major DeFi protocol that still has no token, ranked by what its launch would be worth — and how to farm it before it happens.</p>
+    </div>
+    <div class="masthead-stats" id="masthead-stats"></div>
+  </div>
+</header>
+
+<main id="app">
+  <section id="board-view">
+    <div class="method" id="method"></div>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search protocols…" autocomplete="off">
+      <select id="f-category"><option value="">All categories</option></select>
+      <select id="f-chain"><option value="">All chains</option></select>
+      <label class="check"><input type="checkbox" id="f-watch"> Watchlist only</label>
+      <select id="f-sort">
+        <option value="rank">Sort: implied value</option>
+        <option value="tvl">Sort: TVL</option>
+        <option value="growth">Sort: 7d growth</option>
+        <option value="age">Sort: youngest</option>
+      </select>
+      <span class="count" id="row-count"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+            <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+            <th class="num">Peer ×</th><th class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="board-body"></tbody>
+      </table>
+    </div>
+    <p class="foot">Implied value is a model, not a forecast: TVL × the median market-cap/TVL multiple of the protocol's traded category peers, tilted by 7-day growth and age. Click any row for the full breakdown and its farm plan. Data: DefiLlama snapshot, frozen — see the date above. Farming an unannounced token is speculation; several of these protocols may never launch one.</p>
+  </section>
+
+  <section id="detail-view" hidden></section>
+</main>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
